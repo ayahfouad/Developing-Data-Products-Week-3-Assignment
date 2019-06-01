@@ -1,0 +1,44 @@
+Developing Data Products-Week 3 Assignment
+========================================================
+author: Ayah Fouad
+date: May 28th 2019
+autosize: true
+
+Introduction
+========================================================
+
+
+
+- This project was created as part of the Developing Data Products course of the Coursera Data Science Specialisation.
+
+- The goal of the project is to create a web page presentation using R Markdown that features a plot created with Plotly, and to host the resulting web page on either GitHub Pages, RPubs, or NeoCities.
+
+- The interactive plot on the next slide represents the number of road accidents in Great Britain from 2005 to 2015, grouped by severity (slight, serious, or fatal).
+
+R Code
+========================================================
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=TRUE, cache=TRUE}
+library(plotly)
+
+
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), size = ~hp,
+        text = ~paste("Weight: ", wt, '<br>MPG:', mpg),
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Car Data")
+```
+
+Plot Result
+========================================================
+
+```{r, echo=FALSE}
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), size = ~hp,
+        text = ~paste("Weight: ", wt, '<br>MPG:', mpg),
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Car Data")
+```
